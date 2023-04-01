@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Addbutton from "../UI/Kits/Buttons/Addbutton";
 
 export const NoteForm = ({ addNote }) => {
   const [text, setText] = useState("");
@@ -19,7 +20,8 @@ export const NoteForm = ({ addNote }) => {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <button type="submit">Add</button>
+      <Addbutton/>
     </form>
   );
+  
 };

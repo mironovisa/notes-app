@@ -1,27 +1,22 @@
-import React from "react";
+import React from 'react';
+import "../Styles/Header.css"
 
 export const Header = () => {
   return (
     <header>
-      <nav className="navbar">
-        <div className="navbar-logo">My App</div>
-        <div className="navbar-menu">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
-        </div>
-        <div
-          className="navbar-toggle"
-          onClick={() =>
-            document
-              .querySelector(".navbar-menu")
-              .classList.toggle("active")
-          }
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+      <div className="logo">QuickNote</div>
+      <nav>
+        <ul className="menu">
+          <li className="menu-item">
+            <a href="#" className="menu-link">Home</a>
+          </li>
+          <li className="menu-item">
+            <a href="#" className="menu-link">About</a>
+          </li>
+          <li className="menu-item">
+            <a href="#" className="menu-link">Contact</a>
+          </li>
+        </ul>
       </nav>
     </header>
   );

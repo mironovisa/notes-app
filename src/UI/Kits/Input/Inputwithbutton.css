@@ -1,0 +1,36 @@
+.input-with-add-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input {
+  flex: 1;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.add-btn {
+  height: 36px;
+  padding: 8px;
+  margin-left: 8px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+
+.add-btn:hover {
+  background-color: #0062cc;
+}
+
+.add-btn:active {
+  background-color: #005cbf;
+}
