@@ -9,6 +9,7 @@ const App = () => {
 
   const addNote = (noteText) => {
     const newNote = {
+      title: "Note",
       text: noteText,
       date: new Date(),
       id: Date.now(),
