@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Header } from './Components/Header';
 import { NoteForm } from './Components/NoteForm';
 import { NoteList } from './Components/NoteList';
+import { NoteModal } from './Components/NoteModal';
 import './App.css';
 
 const App = () => {
   const [notes, setNotes] = useState([]);
+  const [selectedNote, setSelectedNote] = useState(null);
 
   const addNote = (noteText) => {
     const newNote = {
@@ -24,12 +26,20 @@ const App = () => {
     }
   };
 
+  const handleNoteClick = (note) => {
+    setSelectedNote(note);
+  }
+  const handleModalClose = () => {
+    setSelectedNote(null);
+  }
+
   return (
     <div className="App">
       <Header />
       <main>
         <NoteForm addNote={addNote} />
-        <NoteList notes={notes} deleteNote={deleteNote} />
+        <NoteList notes={notes} deleteNote={deleteNote} onNoteClick={handleNoteClick} />
+        {selectedNote && (<NoteModal note={selectedNote} isOpen={true} onRequestClose={handleModalClose} />)}
       </main>
     </div>
   );
