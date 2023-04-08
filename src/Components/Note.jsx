@@ -1,7 +1,8 @@
 import React from 'react';
 
 export const Note = ({ note, deleteNote, onNoteClick }) => {
-  const handleDeleteClick = () => {
+  const handleDeleteClick = (e) => {
+    e.stopPropagation();
     deleteNote(note.id);
   };
 
@@ -22,7 +23,7 @@ export const Note = ({ note, deleteNote, onNoteClick }) => {
           hour12: true,
         })}
       </p>
-      <button className="delete-btn" onClick={handleDeleteClick}>
+      <button className="delete-btn" onClick={(e) => handleDeleteClick(e)}>
         Delete
       </button>
     </div>
