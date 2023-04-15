@@ -1,16 +1,18 @@
 //I didn't quite understood where should we show the link for the milesone 7, so i have it here https://643a52a582aa910008679211--clinquant-piroshki-e365f0.netlify.app/
 
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "./Components/Header";
 import { NoteForm } from "./Components/NoteForm";
 import { NoteList } from "./Components/NoteList";
 import { NoteModal } from "./Components/NoteModal";
 import "./App.css";
 
-
 const App = () => {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(() => {
+    const storedNotes = localStorage.getItem("notes");
+    return storedNotes ? JSON.parse(storedNotes) : [];
+  });
   const [selectedNote, setSelectedNote] = useState(null);
 
   const addNote = (text, title) => {
@@ -37,7 +39,7 @@ const App = () => {
     setSelectedNote(null);
   };
   const updateNote = (id, text, title) => {
-    const updatedNotes = notes.map(note => {
+    const updatedNotes = notes.map((note) => {
       if (note.id === id) {
         return { ...note, text, title, updatedDate: new Date() };
       }
@@ -45,6 +47,11 @@ const App = () => {
     });
     setNotes(updatedNotes);
   };
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+    console.log("Notes saved:", JSON.stringify(notes));
+  }, [notes]);
 
   return (
     <div className="App">
@@ -64,9 +71,7 @@ const App = () => {
             updateNote={updateNote}
           />
         )}
-        <div style={{ marginTop: "2rem" }}>
-          
-        </div>
+        <div style={{ marginTop: "2rem" }}></div>
       </main>
     </div>
   );
