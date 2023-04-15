@@ -1,3 +1,6 @@
+//I didn't quite understood where should we show the link for the milesone 7, so i have it here https://643a52a582aa910008679211--clinquant-piroshki-e365f0.netlify.app/
+
+
 import React, { useState } from "react";
 import { Header } from "./Components/Header";
 import { NoteForm } from "./Components/NoteForm";
