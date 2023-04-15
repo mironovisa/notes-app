@@ -8,13 +8,13 @@ export const Header = () => {
       <nav>
         <ul className="menu">
           <li className="menu-item">
-            <a href="#" className="menu-link">Home</a>
+            <button className="menu-link" onClick={() => {}}>Home</button>
           </li>
           <li className="menu-item">
-            <a href="#" className="menu-link">About</a>
+            <button className="menu-link" onClick={() => {}}>About</button>
           </li>
           <li className="menu-item">
-            <a href="#" className="menu-link">Contact</a>
+            <button className="menu-link" onClick={() => {}}>Contact</button>
           </li>
         </ul>
       </nav>

@@ -13,15 +13,7 @@ export const NoteForm = ({ addNote, onSubmit, text: initialText="", title: initi
       textareaRef.current.style.height = textareaRef.current.scrollHeight + "px";
     }
   }, [text]);
-  const autoResizeTextarea = (textarea) => {
-    textarea.style.height = "auto";
-    textarea.style.height = textarea.scrollHeight + "px";
-    textarea.addEventListener("input", function () {
-      this.style.height = "auto";
-      this.style.height = this.scrollHeight + "px";
-    });
-  };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (onSubmit) {

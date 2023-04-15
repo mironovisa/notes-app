@@ -4,7 +4,7 @@ import { NoteForm } from "./Components/NoteForm";
 import { NoteList } from "./Components/NoteList";
 import { NoteModal } from "./Components/NoteModal";
 import "./App.css";
-import { Tumbler } from "./UI/Kits/Tumbler/Tumbler";
+
 
 const App = () => {
   const [notes, setNotes] = useState([]);

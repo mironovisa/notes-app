@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { NoteForm } from './NoteForm';
 import { NoteEditForm } from '../Components/NoteFormEdit'
 import Addbutton from '../UI/Kits/Buttons/Addbutton';
 
