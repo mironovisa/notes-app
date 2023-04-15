@@ -35,3 +35,15 @@
   margin-top: 10px;
   font-size: 12px;
 }
+.NoteModal-editButton {
+  background-color: #a23dff;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  margin-top: 20px;
+  margin-right: 20px;
+  align-self: flex-end;
+}

@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import Addbutton from "../UI/Kits/Buttons/Addbutton";
 import { Tumbler } from "../UI/Kits/Tumbler/Tumbler";
-export const NoteForm = ({ addNote }) => {
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
+
+export const NoteForm = ({ addNote, onSubmit, text: initialText="", title: initialTitle=""}) => {
+  const [title, setTitle] = useState(initialTitle);
+  const [text, setText] = useState(initialText);
   const [showTitle, setShowTitle] = useState(false);
   const textareaRef = useRef(null);
   useEffect(() => {
@@ -23,10 +24,15 @@ export const NoteForm = ({ addNote }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNote(text, title);
-      setTitle("");
-      setText("");
+    if (onSubmit) {
+      onSubmit(text, title);
     }
+    else {
+      addNote(text, title);
+    }
+    setTitle("");
+    setText("");
+  };
   
 
   return (
@@ -44,7 +50,7 @@ export const NoteForm = ({ addNote }) => {
 
         <textarea ref={textareaRef} placeholder="Type your note..." value={text} onChange={(e) => setText(e.target.value)}
           rows={1} style={{overflow: "hidden", resize:"none"}} />
-        <Addbutton />
+        <Addbutton text="Add"/>
         </div>
     </form>
   );

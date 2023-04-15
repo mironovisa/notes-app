@@ -33,6 +33,15 @@ const App = () => {
   const handleModalClose = () => {
     setSelectedNote(null);
   };
+  const updateNote = (id, text, title) => {
+    const updatedNotes = notes.map(note => {
+      if (note.id === id) {
+        return { ...note, text, title, updatedDate: new Date() };
+      }
+      return note;
+    });
+    setNotes(updatedNotes);
+  };
 
   return (
     <div className="App">
@@ -49,6 +58,7 @@ const App = () => {
             note={selectedNote}
             isOpen={true}
             onRequestClose={handleModalClose}
+            updateNote={updateNote}
           />
         )}
         <div style={{ marginTop: "2rem" }}>
